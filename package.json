@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/yaelotan13/tamagochi#readme",
   "devDependencies": {
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.26.0",
     "parcel-bundler": "^1.12.5",
     "prettier": "^2.8.2"
   }
