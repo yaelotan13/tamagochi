@@ -89,6 +89,10 @@ body {
   right: 0;
   background-color: peru;
   color: white;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 10px;
 }
 
 .modal:empty {
