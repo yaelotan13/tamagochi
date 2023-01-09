@@ -1,4 +1,4 @@
-import { modFox, modScene, togglePoopBag, writeModal } from "./ui";
+import { countPlayingTime, modFox, modScene, togglePoopBag, writeModal } from "./ui";
 import { SCENES, RAIN_CHANCE, DAY_LENGTH, NIGHT_LENGTH, getNextDieTime, getNextHungerTime, getNextPoopTime } from "./constants";
 
 const gameState = {
@@ -11,7 +11,11 @@ const gameState = {
   timeToStartCelebrating: -1,
   timeToEndCelebrating: -1,
   poopTime: -1,
+  playingTime: 0,
   tick() {
+    if (this.current !== "INIT" && this.current !== "DEAD") {
+      countPlayingTime(this.playingTime++)
+    }
     this.clock++;
     if (this.clock === this.wakeTime) {
       this.wake();
@@ -82,6 +86,7 @@ const gameState = {
   startGame() {
     this.current = "HATCHING";
     this.wakeTime = this.clock + 1;
+    this.playingTime = 0;
     modFox('egg');
     modScene('day');
     writeModal();
@@ -122,6 +127,7 @@ const gameState = {
     modScene("dead");
     modFox("dead");
     this.clearTimes();
+    this.playingTime = 0;
     writeModal("Fox died 😢 <br /> Press the middle button to start again")
   },
   startCelebrating() {
