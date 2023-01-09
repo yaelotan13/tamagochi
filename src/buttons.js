@@ -14,6 +14,7 @@ export default function initButtons(handleUserAction) {
     } else if (target.classList.contains("right-btn")) {
       toggleHighlighted(selectedIcon, false);
       selectedIcon = (1 + selectedIcon) % ICONS.length;
+
       toggleHighlighted(selectedIcon, true);
     } else {
       handleUserAction(ICONS[selectedIcon]);
