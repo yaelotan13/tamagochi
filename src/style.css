@@ -51,7 +51,23 @@ body {
   display: none;
 }
 
+.clock {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 40px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
 
+.minutes, .seconds, .clock-divider{
+  color: white;
+  font-size: 20px;
+}
 /* buttons */
 
 .buttons {
